@@ -301,6 +301,7 @@ require("lazy").setup({
 			})
 		end,
 	},
+	"tjdevries/colorbuddy.nvim",
 
 	-- Highlight TODO in comments
 	{ "folke/todo-comments.nvim", opts = {} },
@@ -621,8 +622,9 @@ else
 end
 
 -- Set the colorscheme
-vim.cmd.colorscheme("tokyonight")
+-- vim.cmd.colorscheme("tokyonight")
 
+vim.cmd.colorscheme("gruvbuddy")
 -- Term command to launch terminal
 if IS_WINDOWS then
 	vim.api.nvim_create_user_command("Term", function()
