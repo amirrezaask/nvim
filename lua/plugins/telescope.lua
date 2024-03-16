@@ -47,23 +47,23 @@ return {
 					if proj == "" or proj == nil then
 						return
 					end
-					builtin.find_files(dropdown({ previewer = false, cwd = proj }))
+					builtin.find_files({ previewer = false, cwd = proj })
 				end)
 			end, "Find File in project")
 
 			map("n", "<leader><leader>", function()
-				builtin.find_files(dropdown({
+				builtin.find_files({
 					previewer = false,
 					prompt_title = string.format("Find Files: %s", vim.fn.getcwd()),
-				}))
+				})
 			end, "Fuzzy Find in current buffer project")
 
 			map("n", "<leader>b", function()
-				builtin.buffers(dropdown({ previewer = false }))
+				builtin.buffers({ previewer = false })
 			end, "Buffers")
 
 			map("n", "<leader>/", function()
-				builtin.current_buffer_fuzzy_find(dropdown({ previewer = false }))
+				builtin.current_buffer_fuzzy_find({ previewer = false })
 			end, "Fuzzy find in current buffer")
 
 			map("n", "<leader>.", function()
@@ -71,7 +71,7 @@ return {
 			end, "Grep current word")
 
 			map("n", "<leader>o", function()
-				builtin.treesitter(dropdown(no_preview))
+				builtin.treesitter(no_preview)
 			end, "Treesitter symbols")
 
 			map("n", "??", function()
@@ -91,7 +91,7 @@ return {
 			end, "LSP workspace symbols")
 
 			map("n", "<leader>i", function()
-				builtin.find_files(dropdown({ previewer = false, cwd = vim.fn.stdpath("config") }))
+				builtin.find_files({ previewer = false, cwd = vim.fn.stdpath("config") })
 			end, "Neovim Config")
 		end,
 	},
