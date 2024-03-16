@@ -1,4 +1,4 @@
--- -- statusline
+-- statusline
 -- local mode_texts = {
 -- 	n = "Normal",
 -- 	i = "Insert",
