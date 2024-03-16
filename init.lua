@@ -622,9 +622,9 @@ else
 end
 
 -- Set the colorscheme
--- vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("rose-pine")
 
-vim.cmd.colorscheme("gruvbuddy")
+-- vim.cmd.colorscheme("gruvbuddy")
 -- Term command to launch terminal
 if IS_WINDOWS then
 	vim.api.nvim_create_user_command("Term", function()
