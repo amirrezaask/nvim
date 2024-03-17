@@ -15,6 +15,7 @@ return {
 			})
 		end,
 	},
+	{ "catppuccin/nvim", name = "catppuccin" },
 	{
 		"sainnhe/gruvbox-material",
 		config = function()

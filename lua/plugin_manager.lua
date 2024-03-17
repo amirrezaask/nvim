@@ -25,9 +25,6 @@ require("lazy").setup({
 	-- Improved quick fix list experience
 	"kevinhwang91/nvim-bqf",
 
-	-- Pretty icons
-	{ "nvim-tree/nvim-web-devicons" },
-
 	require("plugins.colors"),
 	require("plugins.git"),
 	require("plugins.autocomplete"),
