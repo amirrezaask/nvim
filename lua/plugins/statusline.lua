@@ -21,7 +21,7 @@ function AmirrezaStatusLine()
 		statusline = statusline .. " | " .. branch .. " |"
 	end
 
-	return statusline .. " %r%h%w%q%m%f | %y"
+	return statusline .. " %r%h%w%q%m%f %l:%c | %y"
 end
 
 vim.opt.statusline = "%!v:lua.AmirrezaStatusLine()"
