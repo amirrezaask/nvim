@@ -5,7 +5,21 @@ return {
 			require("gruvbox").setup({
 				transparent_mode = TRANSPARENT,
 				contrast = "hard",
+				italic = {
+					strings = false,
+					emphasis = false,
+					comments = false,
+					operators = false,
+					folds = false,
+				},
 			})
+		end,
+	},
+	{
+		"sainnhe/gruvbox-material",
+		config = function()
+			vim.g.gruvbox_material_background = "hard"
+			vim.g.gruvbox_material_foreground = "original"
 		end,
 	},
 	{
