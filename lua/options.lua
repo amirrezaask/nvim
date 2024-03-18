@@ -79,8 +79,14 @@ if IS_WINDOWS then
 	vim.api.nvim_create_user_command("Term", function()
 		vim.cmd([[ tabnew | term pwsh.exe]])
 	end, {})
+	vim.api.nvim_create_user_command("VTerm", function()
+		vim.cmd([[ vnew | term pwsh.exe]])
+	end, {})
 else
 	vim.api.nvim_create_user_command("Term", function()
 		vim.cmd([[ tabnew | term ]])
+	end, {})
+	vim.api.nvim_create_user_command("VTerm", function()
+		vim.cmd([[ vnew | term ]])
 	end, {})
 end

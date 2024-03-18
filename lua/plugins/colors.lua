@@ -15,7 +15,15 @@ return {
 			})
 		end,
 	},
-	{ "catppuccin/nvim", name = "catppuccin" },
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		config = function()
+			require("catppuccin").setup({
+				no_italic = false, -- Force no italic
+			})
+		end,
+	},
 	{
 		"sainnhe/gruvbox-material",
 		config = function()
