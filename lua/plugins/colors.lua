@@ -20,7 +20,7 @@ return {
 		name = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
-				no_italic = false, -- Force no italic
+				no_italic = true, -- Force no italic
 			})
 		end,
 	},
