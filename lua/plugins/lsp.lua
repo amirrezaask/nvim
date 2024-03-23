@@ -35,7 +35,7 @@ return {
 					require("mason").setup({})
 				end,
 			},
-			-- { "j-hui/fidget.nvim", opts = {} },
+			{ "j-hui/fidget.nvim", opts = {} },
 		},
 		config = function()
 			local lsp_servers = {
