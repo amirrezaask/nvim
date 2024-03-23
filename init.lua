@@ -8,4 +8,4 @@ require("options")
 require("keymaps")
 require("plugin_manager")
 
-vim.cmd.colorscheme("kanagawa-wave")
+vim.cmd.colorscheme("gruvbox-material")

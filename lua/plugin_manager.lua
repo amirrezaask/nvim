@@ -13,29 +13,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- [gc] to comment region/line.
-	{ "numToStr/Comment.nvim", opts = {} },
-
-	-- Detect tabstop and shiftwidth automatically.
-	{ "tpope/vim-sleuth" },
-
-	-- Highlight TODO in comments
-	{ "folke/todo-comments.nvim", opts = {} },
-
-	-- Improved quick fix list experience
-	"kevinhwang91/nvim-bqf",
-
-	{
-		"folke/noice.nvim",
-		opts = {
-			-- add any options here
-		},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-	},
-
+	require("plugins.editing"),
+	require("plugins.ui"),
 	require("plugins.colors"),
 	require("plugins.git"),
 	require("plugins.autocomplete"),
