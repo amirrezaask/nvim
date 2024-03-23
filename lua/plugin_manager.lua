@@ -25,6 +25,17 @@ require("lazy").setup({
 	-- Improved quick fix list experience
 	"kevinhwang91/nvim-bqf",
 
+	{
+		"folke/noice.nvim",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
+
 	require("plugins.colors"),
 	require("plugins.git"),
 	require("plugins.autocomplete"),
