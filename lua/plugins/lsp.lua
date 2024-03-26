@@ -66,6 +66,11 @@ return {
 				require("lspconfig")[server].setup(config)
 			end
 
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help,
+				{ border = "rounded" })
+			-- LspInfo window have rounded border
+			require("lspconfig.ui.windows").default_options.border = "rounded"
 			-- LspInfo window have rounded border
 			require("lspconfig.ui.windows").default_options.border = "rounded"
 
