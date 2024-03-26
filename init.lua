@@ -8,4 +8,4 @@ require("options")
 require("keymaps")
 require("plugin_manager")
 
-vim.cmd.colorscheme("tokyonight")
+vim.cmd.colorscheme("gruvbuddy")
