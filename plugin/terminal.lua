@@ -97,5 +97,3 @@ local function toggle_terminal_tab()
 end
 
 vim.keymap.set({ "n", "t" }, "<c-j>", toggle_terminal_tab)
-
-return {}
