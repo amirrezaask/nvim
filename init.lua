@@ -23,4 +23,4 @@ require("lazy").setup({
 	change_detection = { notify = false },
 })
 
-vim.cmd.colorscheme(os.getenv("NVIM_COLORSCHEME") or "catppuccin-mocha")
+vim.cmd.colorscheme(os.getenv("NVIM_COLORSCHEME") or "rose-pine-moon")

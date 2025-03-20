@@ -1,6 +1,9 @@
 local transparent = os.getenv("NVIM_TRANSPARENT") or true
 return {
 	{
+		"tjdevries/colorbuddy.nvim",
+	},
+	{
 		"folke/tokyonight.nvim",
 
 		opts = {
