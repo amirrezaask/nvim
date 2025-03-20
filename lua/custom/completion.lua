@@ -8,6 +8,10 @@ return { -- Autocomplete menu
 		local cmp_select = { behavior = require("cmp").SelectBehavior.Select }
 		local cmp = require("cmp")
 		cmp.setup({
+			-- disable cmp by default but map a key to enable it
+			completion = {
+				autocomplete = false, -- This prevents nvim-cmp from popping up automatically
+			},
 			preselect = require("cmp.types").cmp.PreselectMode.None,
 			snippet = {
 				expand = function(args)
