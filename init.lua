@@ -1,4 +1,7 @@
 vim.g.mapleader = " "
+
+-- Neovim/Vim will source all files inside ./plugin/ directory
+-- We are also going to add lazy.nvim as plugin manager to install and load 3rd party plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
