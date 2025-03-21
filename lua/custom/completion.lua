@@ -3,6 +3,17 @@ return { -- Autocomplete menu
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
+		{
+			"folke/lazydev.nvim",
+			ft = "lua", -- only load on lua files
+			opts = {
+				library = {
+					-- See the configuration section for more details
+					-- Load luvit types when the `vim.uv` word is found
+					{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				},
+			},
+		},
 	},
 	config = function()
 		local cmp_select = { behavior = require("cmp").SelectBehavior.Select }
@@ -24,6 +35,10 @@ return { -- Autocomplete menu
 			sources = {
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
+				{
+					name = "lazydev",
+					group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+				},
 			},
 		})
 	end,

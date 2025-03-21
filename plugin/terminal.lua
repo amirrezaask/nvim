@@ -67,7 +67,10 @@ local function toggle_bottom_terminal()
 end
 
 local tab_terminal = { tab = -1, buf = -1, last_tab = -1 }
+
 local function toggle_terminal_tab()
+	for tab in ipairs(vim.api.nvim_list_tabpages()) do
+	end
 	if vim.api.nvim_get_current_tabpage() == tab_terminal.tab then
 		if not vim.api.nvim_tabpage_is_valid(tab_terminal.last_tab) then
 			vim.cmd.tabnew()

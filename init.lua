@@ -19,7 +19,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	spec = "custom",
+	spec = "custom", -- this will load all plugin specs defined in ./lua/custom/*.lua
 	change_detection = { notify = false },
 })
 
