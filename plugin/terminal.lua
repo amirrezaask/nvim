@@ -66,37 +66,31 @@ local function toggle_bottom_terminal()
 	bottom_terminal = { buf = bottom_terminal.buf, win = win }
 end
 
-local tab_terminal = { tab = -1, buf = -1, last_tab = -1 }
+local tab_terminal_state = { last_tab = -1 }
 
 local function toggle_terminal_tab()
-	for tab in ipairs(vim.api.nvim_list_tabpages()) do
-	end
-	if vim.api.nvim_get_current_tabpage() == tab_terminal.tab then
-		if not vim.api.nvim_tabpage_is_valid(tab_terminal.last_tab) then
-			vim.cmd.tabnew()
-			tab_terminal.last_tab = vim.api.nvim_get_current_tabpage()
-		end
-		vim.api.nvim_set_current_tabpage(tab_terminal.last_tab)
+	local current_win = vim.api.nvim_get_current_win()
+	if vim.wo[current_win].winbar == "Terminal" then
+		vim.api.nvim_set_current_tabpage(tab_terminal_state.last_tab)
 		return
 	end
-
-	tab_terminal.last_tab = vim.api.nvim_get_current_tabpage()
-
-	if vim.api.nvim_tabpage_is_valid(tab_terminal.tab) then
-		vim.api.nvim_set_current_tabpage(tab_terminal.tab)
-		vim.cmd.startinsert()
+	for _, tab_id in ipairs(vim.api.nvim_list_tabpages()) do
+		local win_id = vim.api.nvim_tabpage_get_win(tab_id)
+		local buf_id = vim.api.nvim_win_get_buf(win_id)
+		if vim.wo[win_id].winbar == "Terminal" and vim.bo[buf_id].buftype == "terminal" then
+			tab_terminal_state.last_tab = vim.api.nvim_get_current_tabpage()
+			vim.api.nvim_set_current_tabpage(tab_id)
+			vim.cmd.startinsert()
+			return
+		end
 	end
 
-	if not vim.api.nvim_tabpage_is_valid(tab_terminal.tab) then
-		vim.cmd.tabnew()
-		tab_terminal.tab = vim.api.nvim_get_current_tabpage()
-	end
-
-	tab_terminal.buf = vim.api.nvim_get_current_buf()
-	if vim.api.nvim_buf_get_option(tab_terminal.buf, "buftype") ~= "terminal" then
-		vim.cmd.term()
-		vim.cmd.startinsert()
-	end
+	tab_terminal_state.last_tab = vim.api.nvim_get_current_tabpage()
+	vim.cmd.tabnew()
+	local win_id = vim.api.nvim_get_current_win()
+	vim.wo[win_id].winbar = "Terminal"
+	vim.cmd.term()
+	vim.cmd.startinsert()
 end
 
 vim.keymap.set({ "n", "t" }, "<c-j>", toggle_terminal_tab)
